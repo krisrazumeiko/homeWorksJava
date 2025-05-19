@@ -1,19 +1,148 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    //1. Создайте метод printThreeWords(), который при вызове должен отпечатать в столбец три слова: Orange, Banana, Apple
+        System.out.println("========= 1 =========");
+        Methods.printThreeWords();
+        System.out.println("=====================\n");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        //2. Создайте метод checkSumSign(), в теле которого объявите две int переменные a и b, и инициализируйте их любыми значениями,
+        // которыми захотите. Далее метод должен просуммировать эти переменные, и если их сумма больше или равна 0,
+        // то вывести в консоль сообщение “Сумма положительная”, в противном случае - “Сумма отрицательная”;
+        System.out.println("========= 2 =========");
+        Methods.checkSumSign();
+        System.out.println("=====================\n");
+
+
+        //3. Создайте метод printColor() в теле которого задайте int переменную value и инициализируйте ее любым значением.
+        //   Если value меньше 0 (0 включительно), то в консоль метод должен вывести сообщение “Красный”,
+        //   если лежит в пределах от 0 (0 исключительно) до 100 (100 включительно), то “Желтый”, если больше 100 (100 исключительно) - “Зеленый”;
+        System.out.println("========= 3 =========");
+        Methods.printColor();
+        System.out.println("=====================\n");
+
+
+        //4. Создайте метод compareNumbers(), в теле которого объявите две int переменные a и b, и инициализируйте их любыми значениями,
+        //  которыми захотите. Если a больше или равно b, то необходимо вывести в консоль сообщение “a >= b”, в противном случае “a < b”;
+        System.out.println("========= 4 =========");
+        Methods.compareNumbers();
+        System.out.println("=====================\n");
+
+
+        //5. Напишите метод, принимающий на вход два целых числа и проверяющий,
+        //  что их сумма лежит в пределах от 10 до 20 (включительно), если да – вернуть true, в противном случае – false.
+        System.out.println("========= 5 =========");
+        System.out.println(Methods.checkSum(10, 8));
+        System.out.println("=====================\n");
+
+
+        //6. Напишите метод, которому в качестве параметра передается целое число, метод должен напечатать
+        //   в консоль, положительное ли число передали или отрицательное. Замечание: ноль считаем положительным числом.
+        System.out.println("========= 6 =========");
+        Methods.checkValue(77);
+        System.out.println("=====================\n");
+
+
+        //7. Напишите метод, которому в качестве параметра передается целое число.
+        //   Метод должен вернуть true, если число отрицательное, и вернуть false если положительное.
+        //   Замечание: ноль считаем положительным числом.
+        System.out.println("========= 7 =========");
+        System.out.println(Methods.checkValuePosNeg(90));
+        System.out.println("=====================\n");
+
+
+        //8. Напишите метод, которому в качестве аргументов передается строка и число,
+        //   метод должен отпечатать в консоль указанную строку, указанное количество раз;
+        System.out.println("========= 8 =========");
+        Methods.printSomeText("hello task 2_2_8", 5);
+        System.out.println("=====================\n");
+
+
+        //9. Напишите метод, который определяет, является ли год високосным, и возвращает boolean (високосный - true,
+        //   не високосный - false). Каждый 4-й год является високосным, кроме каждого 100-го,
+        //   при этом каждый 400-й – високосный.
+        System.out.println("========= 9 =========");
+        System.out.println(Methods.LeapYear(2025));
+        System.out.println("=====================\n");
+
+        //10. Задать целочисленный массив, состоящий из элементов 0 и 1. Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
+        //    С помощью цикла и условия заменить 0 на 1, 1 на 0;
+        System.out.println("========= 10 =========");
+        int [] arr = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
+        System.out.println("Исходный массив:  " + Arrays.toString(arr));
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                arr[i] = 1;
+            } else {
+                arr[i] = 0;
+            }
         }
+        System.out.println("\nИзмененный массив: " + Arrays.toString(arr));
+        System.out.println("======================\n");
+
+
+        //11. Задать пустой целочисленный массив длиной 100.
+        //    С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 ... 100;
+        System.out.println("========= 11 =========");
+        int [] arr1 = new int [100];
+
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.println((arr1[i] = i + 1));
+        }
+        System.out.println("======================\n");
+
+
+        //12. Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ] пройти по нему циклом, и числа меньшие 6 умножить на 2
+        System.out.println("========= 12 =========");
+        int [] arr2 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        System.out.println("Исходный массив:  " + Arrays.toString(arr2));
+
+        for (int i = 0; i < arr2.length; i++) {
+            if (arr2[i] < 6) {
+                arr2[i] = arr2[i] * 2;
+            }
+            //System.out.print(arr2[i] + " ");
+        }
+        System.out.println("\nИзмененный массив: " + Arrays.toString(arr2));
+        System.out.println("======================\n");
+
+
+        //13. Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое),
+        //    и с помощью цикла(-ов) заполнить его диагональные элементы единицами (можно только одну из диагоналей, если обе сложно).
+        //    Определить элементы одной из диагоналей можно по следующему принципу: индексы таких элементов равны, то есть [0][0], [1][1], [2][2], ..., [n][n];
+        System.out.println("========= 13 =========");
+        int [][] arr3 = new int [5][5];
+
+        for (int i = 0; i < arr3.length; i++) { //идём по строкам
+            for (int j = 0; j < arr3.length; j++){ //идём по столбцам
+                if (i == j) { //главная диагональ
+                    arr3[i][j] = 1;
+                }
+                if (i + j == arr3.length - 1) { //побочная диагональ
+                    arr3[i][j] = 1;
+                }
+                System.out.print(" " + arr3[i][j] + " ");//вывод элемента
+            }
+            System.out.println();//перенос строки для визуального сохранения табличной формы
+        }
+        System.out.println("======================\n");
+
+
+        //14. Написать метод, принимающий на вход два аргумента: len и initialValue,
+        //    и возвращающий одномерный массив типа int длиной len, каждая ячейка которого равна initialValue.
+        System.out.println("========= 14 =========");
+        int[] arr4 = Methods.createArray(15, 33); //создаем массив через вызов метода
+
+        for (int i = 0; i < arr4.length; i++) { //печатаем массив
+            //System.out.print(arr4[i] + " ");
+        }
+        System.out.println("Созданный массив: " + Arrays.toString(arr4));
+        System.out.println("======================\n");
+
     }
 }
