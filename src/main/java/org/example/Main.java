@@ -1,19 +1,97 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Задание 1
+        //Создать классы Собака и Кот с наследованием от класса Животное.
+        //Все животные могут бежать и плыть. В качестве параметра каждому методу передается длина препятствия.
+        //Результатом выполнения действия будет печать в консоль. (Например, dogBobik.run(150); -> 'Бобик пробежал 150 м.');
+        //
+        //У каждого животного есть ограничения на действия (бег: кот 200 м., собака 500 м.; плавание: кот не умеет плавать, собака 10 м.).
+        //Добавить подсчет созданных котов, собак и животных.
+        //
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Dog dog2 = new Dog("Пират", "черно-белый");
+        dog2.dogInfo();
+        dog2.run(232);
+        dog2.swim(5);
+        System.out.println("--------------------------------------");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Dog dog3 = new Dog("Барбос", "белый");
+        dog3.dogInfo();
+        dog3.run(2322);
+        dog3.swim(5);
+        System.out.println("--------------------------------------");
+
+        Dog dog4 = new Dog("Шарик", "рыжий");
+        dog4.dogInfo();
+        dog4.run(254);
+        dog4.swim(617);
+        System.out.println("=====================================");
+
+        Cat cat1 = new Cat("Борис", "gray", 10);
+        cat1.catInfo();
+        cat1.run(200);
+        cat1.swim(12345341);
+        System.out.println("--------------------------------------");
+
+        Cat cat2 = new Cat("Евгений", "черный", 2);
+        cat2.catInfo();
+        cat2.run(100);
+        cat2.swim(22);
+        System.out.println("--------------------------------------");
+
+        Cat cat3 = new Cat("Мурзик", "белый", 25);
+        cat3.catInfo();
+        cat3.run(50);
+        cat3.swim(2);
+        System.out.println("--------------------------------------");
+
+        Cat cat5 = new Cat("Дождик", "серый", 1);
+        cat5.catInfo();
+        cat5.run(500);
+        cat5.swim(2);
+        System.out.println("--------------------------------------");
+
+        Cat cat6 = new Cat("Василий", "черный", 12);
+        cat6.catInfo();
+        cat6.run(50);
+        cat6.swim(2);
+        System.out.println("--------------------------------------");
+
+        System.out.println("Всего животных: " + Animal.totalAnimals);
+        System.out.println("Всего собак: " + Dog.dogCount);
+        System.out.println("Всего котов: " + Cat.catCount);
+
+
+        //Расширить задачу, добавив для котов возможность кушать из миски, выполнив следующие пункты:
+        //Сделать так, чтобы в миске с едой не могло получиться отрицательного количества еды (например, в миске 10 еды, а кот пытается покушать 15-20).
+        //Каждому коту нужно добавить поле сытость (когда создаем котов, они голодны). Если коту удалось покушать (хватило еды), сытость = true.
+        //Считаем, что если коту мало еды в миске, то он её просто не трогает, то есть не может быть наполовину сыт (это сделано для упрощения логики программы).
+        //Создать массив котов и миску с едой, попросить всех котов покушать из этой миски и потом вывести информацию о сытости котов в консоль.
+        //Добавить метод, с помощью которого можно было бы добавлять еду в миску
+
+        Cat[] cats = {new Cat("Семен", "black", 1), new Cat("Беляш", "white", 15), new Cat("Рыжик", "red", 2)};
+
+        Plate plate = new Plate(13);
+
+        for (int i = 0; i < cats.length; i++) {
+            cats[i].catToEat(plate);
+            cats[i].CatStietyInfo();
         }
+
+        plate.plateFoodInfo();
+
+        System.out.println("Добавим еды...");
+        plate.addFood(12);
+        plate.plateFoodInfo();
+
+        //кормим котов снова
+        for (int i = 0; i < cats.length; i++) {
+            cats[i].catToEat(plate);
+            cats[i].CatStietyInfo();
+        }
+
+        plate.plateFoodInfo();
     }
 }
