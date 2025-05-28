@@ -28,22 +28,6 @@ public class MathMethods {
                 "Умножение чисел = " + multiplication;
     }
 
-//    public static String arithmeticOperations(int a, int b) throws NegativeValueException { // при отрицальных значениях
-//        if(a < 0 || b < 0) {
-//            throw new NegativeValueException("Входные данные не могут быть отрицательными");
-//        }
-//
-//        int summa = a + b;
-//        int subtraction = a - b;
-//        int division  = a / b;
-//        int multiplication = a * b;
-//
-//        return"Сумма чисел = " + summa + "\n" +
-//                "Разность чисел = " + subtraction + "\n" +
-//                "Деление чисел = " + division + "\n" +
-//                "Умножение чисел = " + multiplication;
-//    }
-
     //Сравнить два целых числа
     public static String compareNumbers(int a, int b) {
         boolean more = a > b;
