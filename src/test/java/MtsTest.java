@@ -97,6 +97,17 @@ public class MtsTest {
         WebElement continueButton = block.findElement(By.xpath(".//button[contains(text(), 'Продолжить')]"));
         wait.until(ExpectedConditions.elementToBeClickable(continueButton));
         continueButton.click();
+
+        //Провекра, что форма оплаты открылась
+        // Переключиться в iframe
+        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe")));
+        driver.switchTo().frame(iframe);
+        // Проверка названия формы
+        WebElement paymentFormTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='app-wrapper']//span[contains(text(), 'Оплата')]")));
+        assert paymentFormTitle.isDisplayed() : "Форма оплаты не появилась";
+        // Вернуться назад в основной контекст
+        driver.switchTo().defaultContent();
     }
 
     //метод нажимает кнопку согласия с cookies
