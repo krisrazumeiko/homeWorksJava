@@ -21,6 +21,7 @@ public class Main {
         students.add(new Student("Галя", 13, 1, Arrays.asList(3, 3, 3, 3)));
         students.add(new Student("Таня", 3, 3, Arrays.asList(9, 8, 8, 8)));
         students.add(new Student("Егор", 12, 2, Arrays.asList(10, 10, 10, 10)));
+        students.add(new Student("Саша", 2, 3, Arrays.asList(1, 1, 1, 1)));
 
         System.out.println("Изначальный массив:");
         for (Student student : students) {
