@@ -1,6 +1,6 @@
 package org.example;
 
-public class Animal {
+public abstract class Animal {
     protected String name;
     public static int totalAnimals = 0;//переменная для подсчета всех животных
 

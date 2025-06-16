@@ -36,6 +36,7 @@ public class Triangle implements Shape{ //треугольник
         System.out.println("Площадь треугольника: " + getArea() + "\n" +
                 String.format("Периметр треугольника: %.2f", + getPerimetr()) + "\n" +
                 "Цвет заливки треугольника: " + getFillColor() + "\n" +
-                "Цвет границы треугольника: " + getBorderColor());
+                "Цвет границы треугольника: " + getBorderColor() + "\n" +
+                "----------------------------------------------------------\n");
     }
 }

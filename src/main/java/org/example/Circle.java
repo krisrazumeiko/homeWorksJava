@@ -35,6 +35,7 @@ public class Circle implements Shape{ //круг
         System.out.println("Площадь круга: " + getArea() + "\n" +
                 String.format("Длина окружности: %.2f", getPerimetr()) + "\n" +
                 "Цвет заливки круга: " + getFillColor() + "\n" +
-                "Цвет границы круга: " + getBorderColor());
+                "Цвет границы круга: " + getBorderColor() + "\n" +
+                "----------------------------------------------------------\n");
     }
 }

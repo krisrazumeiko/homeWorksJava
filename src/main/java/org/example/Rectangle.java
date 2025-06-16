@@ -36,6 +36,7 @@ public class Rectangle implements Shape{ //прямоугольник
         System.out.println(String.format("Площадь прямоугольника:  %.2f", + getArea()) + "\n" +
                 "Периметр прямоугольника: " + getPerimetr() + "\n" +
                 "Цвет заливки прямоугольника: " + getFillColor() + "\n" +
-                "Цвет границы прямоугольника: " + getBorderColor());
+                "Цвет границы прямоугольника: " + getBorderColor() + "\n" +
+                "----------------------------------------------------------\n");
     }
 }
