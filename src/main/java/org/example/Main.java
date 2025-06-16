@@ -1,5 +1,7 @@
 package org.example;
+
 import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         //1. Создать класс "Товар" с полями: название, дата производства, производитель, страна происхождения, цена, состояние бронирования покупателем.
@@ -9,6 +11,7 @@ public class Main {
         Product prod2 = new Product("Phone", "23.11.2011","Samsung", "Korea", 9000, true);
         Product prod3 = new Product("Laptop", "22.02.2019","Asus", "Taiwan", 12000, true);
 
+        System.out.println("======================Task 1========================");
         prod1.printInfo();
         prod2.printInfo();
         prod3.printInfo();
@@ -26,22 +29,22 @@ public class Main {
         Product[] prodArray = new Product[5];
         prodArray[0] = new Product("Phone", "11.11.2011", "Apple", "USA", 10000, false);
         prodArray[1] = new Product("Phone", "23.11.2011", "Samsung", "Korea", 9000, true);
-        prodArray[2] =new Product("Laptop", "22.02.2019", "Asus", "Taiwan", 12000, true);
-        prodArray[3] =new Product("TV", "22.12.2017", "Samsung", "Korea", 13000, false);
-        prodArray[4] =new Product("Laptop", "10.02.2020", "HP", "USA", 11000, true);
+        prodArray[2] = new Product("Laptop", "22.02.2019", "Asus", "Taiwan", 12000, true);
+        prodArray[3] = new Product("TV", "22.12.2017", "Samsung", "Korea", 13000, false);
+        prodArray[4] = new Product("Laptop", "10.02.2020", "HP", "USA", 11000, true);
 
+        System.out.println("======================Task 2========================");
         System.out.println(Arrays.toString(prodArray));
 
 
         //3. Создать класс Park с внутренним классом, с помощью объектов которого можно хранить информацию об аттракционах, времени их работы и стоимости.
         Park park = new Park();
 
-        Park.Attraction attraction = park.new Attraction("Колесо обозрения", "10.00 - 20.00", 10);
-        Park.Attraction attraction1 = park.new Attraction("Американские горки", "12.00 - 20.00", 15);
-        Park.Attraction attraction2 = park.new Attraction("Машинки", "10.00 - 21.00", 15);
+        System.out.println("======================3========================");
+        park.addAttraction("Колесо обозрения", "10.00 - 20.00", 10);
+        park.addAttraction("Американские горки", "12.00 - 20.00", 15);
+        park.addAttraction("Машинки", "10.00 - 21.00", 15);
 
-        attraction.printInfo();
-        attraction1.printInfo();
-        attraction2.printInfo();
+        park.printAllAttractions();
     }
 }

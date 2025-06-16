@@ -17,25 +17,18 @@ public class Product {
         this.bookState = bookState;
     }
 
-    public void printInfo() {
-        System.out.println("Товар: " +
+    public String toString() {
+        return "\nТовар: " +
                 "\nНазвание: " + this.name +
                 "\nДата производства: " + this.prodDate +
                 "\nПроизводитель: " + this.producer +
                 "\nCтрана происхождения: " + this.prodCountry +
                 "\nЦена: " + this.price +
                 "\nСостояние бронирования покупателем: " + this.bookState +
-                "\n============================");
+                "\n-------------------------------------------------------";
     }
 
-    public String toString() {
-        return "Товар: " +
-                "\nНазвание: " + this.name +
-                "\nДата производства: " + this.prodDate +
-                "\nПроизводитель: " + this.producer +
-                "\nCтрана происхождения: " + this.prodCountry +
-                "\nЦена: " + this.price +
-                "\nСостояние бронирования покупателем: " + this.bookState +
-                "\n============================";
+    public void printInfo() {
+        System.out.println(this); // вызовет toString()
     }
 }
