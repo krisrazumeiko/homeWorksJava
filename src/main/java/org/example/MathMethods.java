@@ -36,6 +36,6 @@ public class MathMethods {
 
         return "a > b = " + more + "\n" +
                 "a < b = " + less + "\n" +
-                "a = b - " + equal + "\n";
+                "a = b - " + equal;
     }
 }
