@@ -1,16 +1,18 @@
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class MtsTest {
     private WebDriver driver;
@@ -49,6 +51,33 @@ public class MtsTest {
         WebElement block = header.findElement(By.xpath("./ancestor::section"));
         List<WebElement> logos = block.findElements(By.xpath(".//img | .//svg"));
         assert !logos.isEmpty() : "Логотипы платёжных систем не найдены";
+
+        List<String> allowedAltTexts = Arrays.asList("Visa", "Verified By Visa", "MasterCard", "MasterCard Secure Code", "Белкарт");
+
+        for (WebElement logo : logos) {
+            String tagName = logo.getTagName();
+
+            if ("img".equalsIgnoreCase(tagName)) {
+                String src = logo.getAttribute("src");
+                assertNotNull(src, "У <img> отсутствует атрибут src");
+                assertFalse("У <img> src пустой", src.trim().isEmpty());
+
+                String alt = logo.getAttribute("alt");
+                assertNotNull(alt, "У <img> отсутствует атрибут alt");
+                assertFalse("У <img> alt пустой", alt.trim().isEmpty());
+
+                // Проверка соответствия alt списку допустимых значений
+                assertTrue("Недопустимое значение alt: " + alt, allowedAltTexts.contains(alt.trim()));
+
+            } else if ("svg".equalsIgnoreCase(tagName)) {
+                String svgContent = logo.getAttribute("outerHTML");
+                assertNotNull(svgContent, "SVG контент отсутствует");
+                assertTrue("SVG не содержит <svg> разметку", svgContent.contains("<svg"));
+
+            } else {
+                fail("Неожиданный тег: " + tagName);
+            }
+        }
     }
 
     //Проверка ссылки «Подробнее о сервисе»
@@ -100,11 +129,11 @@ public class MtsTest {
 
         //Провекра, что форма оплаты открылась
         // Переключиться в iframe
-        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe")));
+        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[contains(@src, 'widget_v2/index.html')]")));
         driver.switchTo().frame(iframe);
         // Проверка названия формы
         WebElement paymentFormTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[@class='app-wrapper']//span[contains(text(), 'Оплата')]")));
+                By.xpath("//span[contains(text(), 'Оплата: Услуги связи')]")));
         assert paymentFormTitle.isDisplayed() : "Форма оплаты не появилась";
         // Вернуться назад в основной контекст
         driver.switchTo().defaultContent();
