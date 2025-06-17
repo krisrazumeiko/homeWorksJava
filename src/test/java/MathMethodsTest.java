@@ -1,50 +1,43 @@
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class MathMethodsTest {
     //Factorial
-    @Test
-    void testFactorial_5() {
-        assertEquals(120, MathMethods.factorialNumber(5));
-    }
-
-    @Test
-    void testFactorial_0() {
-        assertEquals(1, MathMethods.factorialNumber(0));
-    }
-
-    @Test
-    void testFactorial_1() {
-        assertEquals(1, MathMethods.factorialNumber(1));
+    @ParameterizedTest
+    @CsvSource({
+            "5, 120",
+            "0, 1",
+            "1, 1"
+    })
+    void testFactorial(int input, int expected) {
+        assertEquals(expected, MathMethods.factorialNumber(input));
     }
 
     //AreaTriangle
-    @Test
-    void testAreaTriangle() {
-        assertEquals(6.0, MathMethods.areaTriangle(3, 4));
-    }
-
-    @Test
-    void testAreaTriangle_a0() {
-        assertEquals(0.0, MathMethods.areaTriangle(0, 4));
-    }
-
-    @Test
-    void testAreaTriangle_h0() {
-        assertEquals(0.0, MathMethods.areaTriangle(3, 0));
+    @ParameterizedTest
+    @CsvSource({
+            "3, 4, 6.0",
+            "0, 4, 0.0",
+            "3, 0, 0.0"
+    })
+    void testAreaTriangle(double a, double h, double expected) {
+        assertEquals(expected, MathMethods.areaTriangle(a, h));
     }
 
     //ArithmeticOperations
-    @Test
-    void testArithmeticOperations() {
-        String expected = "Сумма чисел = 5\n" +
-                "Разность чисел = -1\n" +
-                "Деление чисел = 0\n" +
-                "Умножение чисел = 6";
-        assertEquals(expected, MathMethods.arithmeticOperations(2, 3));
+    @ParameterizedTest
+    @CsvSource({
+            "2, 3, 'Сумма чисел = 5\nРазность чисел = -1\nДеление чисел = 0\nУмножение чисел = 6'",
+            "10, 5, 'Сумма чисел = 15\nРазность чисел = 5\nДеление чисел = 2\nУмножение чисел = 50'"
+    })
+    void testArithmeticOperations(int a, int b, String expected) {
+        assertEquals(expected, MathMethods.arithmeticOperations(a, b));
     }
 
     @Test
@@ -59,27 +52,13 @@ public class MathMethodsTest {
     }
 
     //CompareNumbers
-    @Test
-    void testCompareNumbers_() {
-        String expected = "a > b = true" + "\n" +
-                "a < b = false" + "\n" +
-                "a = b - false" + "\n";
-        assertEquals(expected, MathMethods.compareNumbers(5, 3));
-    }
-
-    @Test
-    void testCompareNumbers_a_Less() {
-        String expected = "a > b = false" + "\n" +
-                "a < b = true" + "\n" +
-                "a = b - false" + "\n";
-        assertEquals(expected, MathMethods.compareNumbers(1, 3));
-    }
-
-    @Test
-    void testCompareNumbers_a_Equals_b() {
-        String expected = "a > b = false" + "\n" +
-                "a < b = false" + "\n" +
-                "a = b - true" + "\n";
-        assertEquals(expected, MathMethods.compareNumbers(5, 5));
+    @ParameterizedTest
+    @CsvSource({
+            "5, 3, 'a > b = true\na < b = false\na = b - false\n'",
+            "1, 3, 'a > b = false\na < b = true\na = b - false\n'",
+            "5, 5, 'a > b = false\na < b = false\na = b - true\n'"
+    })
+    void testCompareNumbers(int a, int b, String expected) {
+        assertEquals(expected, MathMethods.compareNumbers(a, b));
     }
 }
