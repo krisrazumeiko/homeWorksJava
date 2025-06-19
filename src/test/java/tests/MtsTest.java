@@ -45,7 +45,7 @@ public class MtsTest {
 
     @Test
     @DisplayName("Проверка логотипов платежных систем в блоке 'Онлайн пополнение без комиссии'")
-    @Description("Тест проверяет наличие логотипов Visa, Mastercard и др.")
+    @Description("Тест проверяет наличие логотипов Visa, Verified By Visa, Mastercard, MasterCard Secure Code, Белкарт")
     @Story("UI-тесты страницы оплаты")
     public void checkPaymentSystemLogosPresent() {
         paymentPage.checkPaymentSystemLogosPresent();
