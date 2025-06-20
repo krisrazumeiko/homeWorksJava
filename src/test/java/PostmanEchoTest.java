@@ -82,6 +82,17 @@ public class PostmanEchoTest {
 
     //PUT
     @Test
+    public void putRequestShouldReturnStatus200() { //
+        given()
+                //.log().all() // Логируем запрос
+                .when()
+                .put("https://postman-echo.com/put")
+                .then()
+                .log().all() // Логируем ответ
+                .statusCode(200);
+    }
+
+    @Test
     public void putTextShouldBeReturnedInDataField() {
         given()
                 //.log().all()
@@ -96,6 +107,17 @@ public class PostmanEchoTest {
 
     //PATCH
     @Test
+    public void patchRequestShouldReturnStatus200() { //
+        given()
+                //.log().all() // Логируем запрос
+                .when()
+                .patch("https://postman-echo.com/patch")
+                .then()
+                .log().all() // Логируем ответ
+                .statusCode(200);
+    }
+
+    @Test
     public void patchTextShouldBeReturnedInDataField() {
         given()
                 //.log().all()
@@ -109,6 +131,17 @@ public class PostmanEchoTest {
     }
 
     //DELETE
+    @Test
+    public void deleteRequestShouldReturnStatus200() { //
+        given()
+                //.log().all() // Логируем запрос
+                .when()
+                .delete("https://postman-echo.com/delete")
+                .then()
+                .log().all() // Логируем ответ
+                .statusCode(200);
+    }
+
     @Test
     public void deleteTextShouldBeReturnedInDataField() {
         given()
