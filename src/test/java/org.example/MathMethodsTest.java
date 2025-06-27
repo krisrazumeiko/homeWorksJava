@@ -28,6 +28,7 @@ public class MathMethodsTest {
                 {10.0, 0.0, 0.0}
         };
     }
+
     @Test(dataProvider = "areaTriangleData")
     public void testAreaTriangle(double a, double h, double expected) {
         double actual = (a * h) / 2;
@@ -43,6 +44,7 @@ public class MathMethodsTest {
                 {3, 1, "Сумма чисел = 4\nРазность чисел = 2\nДеление чисел = 3\nУмножение чисел = 3"}
         };
     }
+
     @Test(expectedExceptions = ArithmeticException.class) //деление на 0
     public void testArithmeticOperations_DivideByZero() {
         String result = MathMethods.arithmeticOperations(8, 0);
@@ -57,6 +59,7 @@ public class MathMethodsTest {
                 {8, 8, "a > b = false\na < b = false\na = b - true"}
         };
     }
+
     @Test(dataProvider = "compareNumbersData")
     public void testCompareNumbers(int a, int b, String expected) {
         assertEquals(MathMethods.compareNumbers(a, b), expected);
